@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myNinjaApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <link href="./content/style.css" rel="stylesheet" />
+    <title>Angular js</title>
+    <script src="./content/lib/angular-1.8.2/angular.min.js"></script>
+  </head>
+
+  <body>
+    <!--<ng-include src="'./views/UI/header.html'"></ng-include>-->
+    <header ng-include="'./views/UI/header.html'"></header>
+
+    <div class="content">
+      <div ng-controller="NinjaController">
+        <p>{{message}}</p>
+
+        <button ng-click="order= 'name'">Order by Name</button>
+        <button ng-click="order = 'belt'">Order by Belt</button>
+        <input ng-model="search" type="text" />
+
+        <ul>
+          <!--        <li ng-repeat="ninja in ninjas">{{ninja}}</li>-->
+          <!--        filter este legat de search prin ng-model-->
+          <!-- <li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search" ng-show="ninja.available"> -->
+          <li
+            ng-repeat="ninja in ninjas | orderBy: order | filter: search"
+            ng-show="ninja.available"
+          >
+            <!--                ng-hide='ninja.available'-->
+            <h3>
+              {{ninja.name.toUpperCase()}} - {{ninja.rate.toFixed() | currency}}
+            </h3>
+            <div style="background-color: {{ninja.belt}}" class="belt">
+              {{ninja.belt}} belt
+              <span ng-click="removeNinja(ninja)" class="remove">X</span>
+            </div>
+          </li>
+        </ul>
+
+        <form ng-submit="addNinja()">
+          <input type="text" placeholder="name" ng-model="newninja.name" />
+          <input type="text" placeholder="belt" ng-model="newninja.belt" />
+          <input type="text" placeholder="rate" ng-model="newninja.rate" />
+          <input type="submit" value="add new ninja" />
+        </form>
+      </div>
+    </div>
+
+    <footer ng-include="'./views/UI/footer.html'"></footer>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

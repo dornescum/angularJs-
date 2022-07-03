@@ -1,0 +1,32 @@
+<!doctype html>
+<!--IMPORTANT -->
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./content/lib/angular-1.8.2/angular.min.js"></script>
+
+</head>
+<body>
+<!--nu este recomandat recomandat-->
+<!--<body ng-init="ninjas=['yoshi', 'ryu','crystal', 'shaun']">-->
+<body  ng-init="str=['red','orange','blue']">
+ng-model
+<input ng-model="favMeat" placeholder="enter your meat" type="text">
+<p>your fav meat : {{favMeat}}</p>
+<p>{{5*5}}</p>
+
+<ul ng-init="ninjas=['yoshi','ryu','crystal', 'shaun']">
+    <li ng-repeat="ninja in ninjas">testing: {{ninja}}</li>
+    <!--    <li>{{ninjas[0]}}</li>-->
+</ul>
+
+<p style='color:{{colors}}' ng-repeat="colors in str">Hello everyone! {{colors}}</p>
+<script>
+	console.log(ninjas);
+</script>
+</body>
+</html>
