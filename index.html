@@ -29,9 +29,9 @@
           <!--        filter este legat de search prin ng-model-->
           <!-- <li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search" ng-show="ninja.available"> -->
           <li
-            ng-repeat="ninja in ninjas | orderBy: order | filter: search"
-            ng-show="ninja.available"
-          >
+            ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+            <img ng-src="{{ninja.thumb}}" alt="{{ninja.name}}">
+
             <!--                ng-hide='ninja.available'-->
             <h3>
               {{ninja.name.toUpperCase()}} - {{ninja.rate.toFixed() | currency}}
