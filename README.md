@@ -12,5 +12,5 @@ tutorial:
 > ng-repeat <br/>
 > ng-show <br/>
 > ng-hide <br/>
-
+> ng-src <br/>
 <br/>
